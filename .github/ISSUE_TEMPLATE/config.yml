@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: ❓ Ask the community
+    url: https://github.com/sadiqcavid/community/discussions
+    about: Questions about configuration, deployment or usage.
+  - name: 🔒 Report a security vulnerability
+    url: https://github.com/sadiqcavid/community/security/advisories/new
+    about: Private report — never open a public issue for security problems.
