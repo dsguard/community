@@ -1,0 +1,33 @@
+name: 💡 Feature Request
+description: Suggest a new capability or improvement
+labels: ["feature-request", "needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: "Thanks for helping shape DSGuard. Please check existing requests first."
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem would this solve?
+      description: Describe the use case, not just the solution.
+    validations: { required: true }
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed solution
+    validations: { required: true }
+  - type: dropdown
+    id: component
+    attributes:
+      label: Component
+      options: [PostgreSQL, MySQL, MSSQL, Oracle, MongoDB, ClickHouse, Masking, Audit / logging, Access control, Web UI, Other]
+    validations: { required: true }
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives you considered
+  - type: dropdown
+    id: importance
+    attributes:
+      label: How important is this to you?
+      options: ["Nice to have", "Important", "Blocking our deployment"]
