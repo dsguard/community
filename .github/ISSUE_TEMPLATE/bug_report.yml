@@ -1,0 +1,75 @@
+name: 🐞 Bug Report
+description: Report a problem with DSGuard
+labels: ["bug", "needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting a bug.
+
+        ⚠️ **Never paste passwords, API keys, tokens, connection strings or real
+        customer data.** Redact your logs first.
+
+        🔒 **Found a security vulnerability?** Do not use this form —
+        [report it privately](../../security/advisories/new) instead.
+  - type: input
+    id: version
+    attributes:
+      label: DSGuard version
+      placeholder: "e.g. 2.4.1"
+    validations: { required: true }
+  - type: dropdown
+    id: database
+    attributes:
+      label: Database
+      options: [PostgreSQL, MySQL, MSSQL, Oracle, MongoDB, ClickHouse, Web UI / other]
+    validations: { required: true }
+  - type: input
+    id: dbversion
+    attributes:
+      label: Database version
+      placeholder: "e.g. PostgreSQL 17.2"
+  - type: input
+    id: environment
+    attributes:
+      label: Deployment & OS
+      placeholder: "e.g. Docker on Ubuntu 24.04"
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+    validations: { required: true }
+  - type: textarea
+    id: expected
+    attributes:
+      label: What did you expect to happen?
+    validations: { required: true }
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1.
+        2.
+        3.
+    validations: { required: true }
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs (redacted)
+      render: shell
+  - type: dropdown
+    id: severity
+    attributes:
+      label: Severity
+      options: [Low, Medium, High, Critical]
+    validations: { required: true }
+  - type: checkboxes
+    id: confirm
+    attributes:
+      label: Confirmation
+      options:
+        - label: I have removed all credentials and real customer data from this report.
+          required: true
+        - label: This is not a security vulnerability.
+          required: true
