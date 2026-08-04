@@ -50,6 +50,12 @@ docker run -d --name dsguard --network host -v dsguard-data:/data dsguard/dsguar
 ```
 
 After about 90 seconds (first run), open **https://localhost:8080** (`admin` / `admin`).
+
+> 🐧 The **Community Edition** is supported on **Linux (x86-64)** only — `--network host` is required
+> for the gateway to publish its proxy ports, and Docker Desktop for macOS/Windows is not supported.
+> (Professional and Enterprise deployments are sized and installed for you; ask us about other
+> platforms.)
+
 Full instructions, system requirements and troubleshooting are on the
 **[Docker Hub page](https://hub.docker.com/r/dsguard/dsguard)**.
 
