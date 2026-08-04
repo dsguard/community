@@ -13,6 +13,8 @@ Welcome to the DSGuard community space — the place to report bugs, request fea
 
 ## About DSGuard
 
+![DSGuard topology — an inline security gateway between your clients and your databases](docs/topology.png)
+
 **DSGuard** is a database security gateway. It sits between your applications and your databases and
 inspects every request and response in real time, protecting **PostgreSQL, MySQL, MSSQL, Oracle,
 MongoDB and ClickHouse** against:
