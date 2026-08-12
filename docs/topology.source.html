@@ -1,0 +1,145 @@
+<!doctype html>
+<meta charset="utf-8">
+<style>
+  /* Palette sampled from the published topology.png so the redraw matches it. */
+  :root{
+    --bg:#0d1526; --card:#16223a; --edge:#26334f; --gw:#111c30; --pill:#1d2b46;
+    --orange:#f97316; --white:#e6ecf5; --grey:#9fb0c7; --dim:#6a80a3;
+    --teal:#3fbf9a; --red:#e05a4e;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{width:2800px;height:1600px;background:var(--bg);overflow:hidden}
+  body{position:relative;font-family:"DejaVu Sans",sans-serif;-webkit-font-smoothing:antialiased}
+  .abs{position:absolute}
+  .card{background:var(--card);border:2px solid var(--edge);border-radius:16px;
+        display:flex;align-items:center;gap:26px;padding:0 30px}
+  .ico{font-size:44px;line-height:1;flex:0 0 auto}
+  .t1{color:var(--white);font-size:34px;font-weight:700;line-height:1.15}
+  .t2{color:var(--grey);font-size:24px;line-height:1.2;margin-top:6px}
+  .seclabel{color:var(--dim);font-size:22px;font-weight:700;letter-spacing:4px}
+  .dbname{color:var(--white);font-size:29px;font-weight:700;white-space:nowrap}
+  svg{position:absolute;left:0;top:0;width:2800px;height:1600px;pointer-events:none}
+  .lbl{position:absolute;color:var(--dim);font-size:25px;line-height:1.3;text-align:center}
+</style>
+
+<!-- ── header ─────────────────────────────────────────────────────────── -->
+<div class="abs" style="left:110px;top:64px;display:flex;align-items:baseline;gap:26px">
+  <div style="font-size:58px;font-weight:700;color:var(--white)">
+    <span style="color:var(--orange)">[</span>DSGuard<span style="color:var(--orange)">]</span>
+  </div>
+  <div style="font-size:31px;color:var(--grey)">Database Security Gateway</div>
+</div>
+<div class="abs" style="right:110px;top:82px;font-size:27px;color:var(--dim)">ds-guard.com</div>
+
+<!-- ── clients ────────────────────────────────────────────────────────── -->
+<div class="abs seclabel" style="left:110px;top:286px">CLIENTS</div>
+<div class="abs card" style="left:110px;top:330px;width:600px;height:140px">
+  <div class="ico">🖥️</div><div><div class="t1">Applications</div><div class="t2">your existing apps &amp; services</div></div>
+</div>
+<div class="abs card" style="left:110px;top:500px;width:600px;height:140px">
+  <div class="ico">👤</div><div><div class="t1">Users &amp; BI tools</div><div class="t2">psql, DBeaver, dashboards</div></div>
+</div>
+<div class="abs card" style="left:110px;top:670px;width:600px;height:140px">
+  <div class="ico">🤖</div><div><div class="t1">AI agents</div><div class="t2">ShellAI sandboxed console</div></div>
+</div>
+
+<!-- ── gateway ────────────────────────────────────────────────────────── -->
+<div class="abs" style="left:1000px;top:330px;width:810px;height:520px;
+     background:var(--gw);border:4px solid var(--orange);border-radius:22px">
+  <div style="text-align:center;margin-top:34px;font-size:46px;font-weight:700;color:var(--white)">DSGuard Gateway</div>
+  <div style="text-align:center;margin-top:14px;font-size:25px;color:var(--grey);letter-spacing:3px">INLINE · INSPECT · CONTROL · AUDIT</div>
+  <div style="margin:20px auto 0;width:fit-content;background:var(--pill);border-radius:24px;
+              padding:11px 30px;font-size:25px;color:var(--white)">every request &amp; response that passes through</div>
+
+  <!-- 8 inline controls, two columns -->
+  <div style="margin:26px 40px 0;display:grid;grid-template-columns:1fr 1fr;column-gap:26px;row-gap:16px">
+    <div style="font-size:27px;color:var(--white)"><span style="color:var(--orange)">●</span> SQL-injection</div>
+    <div style="font-size:27px;color:var(--white)"><span style="color:var(--orange)">●</span> Dangerous functions</div>
+    <div style="font-size:27px;color:var(--white)"><span style="color:var(--orange)">●</span> Dynamic masking</div>
+    <div style="font-size:27px;color:var(--white)"><span style="color:var(--orange)">●</span> Response-leak scan</div>
+    <div style="font-size:27px;color:var(--white)"><span style="color:var(--orange)">●</span> Object permissions</div>
+    <div style="font-size:27px;color:var(--white)"><span style="color:var(--orange)">●</span> IP / time / app rules</div>
+    <div style="font-size:27px;color:var(--white)"><span style="color:var(--orange)">●</span> Rate limiting · MFA</div>
+    <div style="font-size:27px;color:var(--white)"><span style="color:var(--orange)">●</span> Audit + risk score</div>
+  </div>
+
+  <!-- the second acquisition path, tied by colour to the dashed line below -->
+  <div style="margin:20px 40px 0;padding-top:16px;border-top:1px solid #24334f;
+              font-size:26px;color:var(--teal);text-align:center">
+    <span>◆</span> Database Activity Monitoring (native audit)
+  </div>
+</div>
+
+<!-- ── databases ──────────────────────────────────────────────────────── -->
+<div class="abs seclabel" style="left:2090px;top:286px">DATABASES</div>
+<div class="abs card" style="left:2090px;top:330px;width:290px;height:140px;gap:16px;padding:0 22px">
+  <div class="ico" style="font-size:38px">🐘</div><div class="dbname">PostgreSQL</div></div>
+<div class="abs card" style="left:2400px;top:330px;width:290px;height:140px;gap:16px;padding:0 22px">
+  <div class="ico" style="font-size:38px">🐬</div><div class="dbname">MySQL</div></div>
+<div class="abs card" style="left:2090px;top:500px;width:290px;height:140px;gap:16px;padding:0 22px">
+  <div class="ico" style="font-size:38px">🟦</div><div class="dbname">SQL Server</div></div>
+<div class="abs card" style="left:2400px;top:500px;width:290px;height:140px;gap:16px;padding:0 22px">
+  <div class="ico" style="font-size:38px">🔴</div><div class="dbname">Oracle</div></div>
+<div class="abs card" style="left:2090px;top:670px;width:290px;height:140px;gap:16px;padding:0 22px">
+  <div class="ico" style="font-size:38px">🍃</div><div class="dbname">MongoDB</div></div>
+<div class="abs card" style="left:2400px;top:670px;width:290px;height:140px;gap:16px;padding:0 22px">
+  <div class="ico" style="font-size:38px">📊</div><div class="dbname">ClickHouse</div></div>
+
+<!-- ── the traffic that never reaches the gateway ─────────────────────── -->
+<div class="abs" style="left:110px;top:1090px;width:600px;height:150px;background:#131d33;
+     border:2px dashed #46567a;border-radius:16px;display:flex;align-items:center;gap:26px;padding:0 30px">
+  <div class="ico">🛠️</div>
+  <div><div class="t1" style="color:#c9d4e6">Direct access</div>
+       <div class="t2">local shell · cron job · DBA console</div></div>
+</div>
+
+<!-- ── connectors ─────────────────────────────────────────────────────── -->
+<svg viewBox="0 0 2800 1600">
+  <defs>
+    <marker id="ar" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto">
+      <path d="M0,0 L10,4 L0,8 z" fill="#6a80a3"/></marker>
+    <marker id="arT" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto">
+      <path d="M0,0 L10,4 L0,8 z" fill="#3fbf9a"/></marker>
+    <marker id="arR" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto">
+      <path d="M0,0 L10,4 L0,8 z" fill="#e05a4e"/></marker>
+  </defs>
+
+  <!-- clients -> gateway -->
+  <line x1="740" y1="612" x2="975" y2="612" stroke="#6a80a3" stroke-width="6" marker-end="url(#ar)"/>
+  <!-- gateway -> databases -->
+  <line x1="1830" y1="612" x2="2075" y2="612" stroke="#6a80a3" stroke-width="6" marker-end="url(#ar)"/>
+
+  <!-- native audit read-back: databases -> gateway (teal, dashed) -->
+  <path d="M2235,830 L2235,1000 L1405,1000 L1405,856" fill="none" stroke="#3fbf9a"
+        stroke-width="6" stroke-dasharray="18 14" marker-end="url(#arT)"/>
+
+  <circle cx="2235" cy="828" r="9" fill="#3fbf9a"/>
+
+  <!-- bypass: direct access -> databases, never touching the gateway (red, dashed) -->
+  <path d="M745,1165 L2545,1165 L2545,832" fill="none" stroke="#e05a4e"
+        stroke-width="6" stroke-dasharray="18 14" marker-end="url(#arR)"/>
+</svg>
+
+<!-- ── connector labels (placed clear of every line) ──────────────────── -->
+<div class="lbl" style="left:715px;top:530px;width:285px">plain / TLS<br>no client changes</div>
+<div class="lbl" style="left:1815px;top:530px;width:275px">inspected<br>no DB changes</div>
+<div class="lbl" style="left:1430px;top:1022px;width:780px;color:var(--teal)">
+  native audit trail — agentless, read after the fact</div>
+<div class="lbl" style="left:900px;top:1096px;width:1300px;color:#e2857b">
+  bypasses the gateway — no proxy can log what never reaches it</div>
+
+<!-- ── infrastructure row ─────────────────────────────────────────────── -->
+<div class="abs" style="left:110px;top:1290px;width:2580px;height:1px;background:var(--edge)"></div>
+<div class="abs card" style="left:110px;top:1330px;width:830px;height:140px">
+  <div class="ico" style="font-size:38px">⚙️</div>
+  <div><div class="t1" style="font-size:31px">Web UI</div><div class="t2">one console — rules, users, config</div></div>
+</div>
+<div class="abs card" style="left:985px;top:1330px;width:830px;height:140px">
+  <div class="ico" style="font-size:38px">🗄️</div>
+  <div><div class="t1" style="font-size:31px">Audit store · ClickHouse</div>
+       <div class="t2">proxied and natively collected, one table</div></div>
+</div>
+<div class="abs card" style="left:1860px;top:1330px;width:830px;height:140px">
+  <div class="ico" style="font-size:38px">📈</div>
+  <div><div class="t1" style="font-size:31px">Grafana</div><div class="t2">pre-built dashboards</div></div>
+</div>
