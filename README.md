@@ -13,10 +13,10 @@ Welcome to the DSGuard community space — the place to report bugs, request fea
 
 ## About DSGuard
 
-![DSGuard topology — an inline security gateway between your clients and your databases](docs/topology.png)
+![DSGuard topology — inline for the traffic that passes through it, native audit for the traffic that goes around it](docs/topology.png)
 
 **DSGuard** is a database security gateway. It sits between your applications and your databases and
-inspects every request and response in real time, protecting **PostgreSQL, MySQL, MSSQL, Oracle,
+inspects every request and response that passes through it, protecting **PostgreSQL, MySQL, MSSQL, Oracle,
 MongoDB and ClickHouse** against:
 
 - **SQL injection** — pattern-based detection with per-rule allow / monitor / block actions
@@ -26,8 +26,16 @@ MongoDB and ClickHouse** against:
   rate limits and TOTP multi-factor authentication
 
 Sensitive columns can be masked on the fly (format-preserving, consistent, random or Lua-scripted), and
-**every query is audited** with a risk score and the reason for the decision — visible in the web UI and
+**every query through the gateway is audited** with a risk score and the reason for the decision — visible in the web UI and
 in 11 pre-built Grafana dashboards.
+
+A gateway only sees what goes through it. A local shell, a scheduled job, or a DBA connecting straight
+to the database does not — and no proxy can log what never reaches it. **Database Activity Monitoring**
+closes that gap: DSGuard reads the database's own audit trail — agentless, with no DSGuard software on
+the database host — and files those records in the same query log, tagged `Native audit` beside `Proxy`.
+It is opt-in per server and reads over SQL, SSH or WMI depending on the engine. The **Shadow Database
+Report** then names the databases that appear in that trail but were never registered as data sources —
+databases in use that are outside every DSGuard control.
 
 DSGuard also includes **ShellAI**, a console that runs AI clients (such as coding agents) inside a
 sandbox and applies the same class of security rules to what they execute.
