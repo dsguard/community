@@ -48,10 +48,12 @@ The public image is the **Community Edition** — **free, no licence key, no reg
 
 - **All security features are enabled**, permanently — nothing is feature-gated.
 - **Logging and audit are never restricted by licensing.** Your query logs are always yours.
-- The only limits are capacity: **3 data sources** and **3 ShellAI users**.
+- **No capacity limit** — as many data sources and ShellAI users as you need.
+- What it does not include is **support**: you install it, run it and update it yourself.
 
-Professional and Enterprise differ from Community **only in capacity and support — never in features**.
-For higher capacity, production deployment or licensing, contact **dsg@ds-guard.com**.
+Professional and Enterprise run the **same software** — nothing is feature-gated and nothing is
+capacity-gated. What they add is engineer-led deployment, software and detection-pattern updates
+installed for you, and a support commitment. For that, contact **dsg@ds-guard.com**.
 
 ## Try it
 
